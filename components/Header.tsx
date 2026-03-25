@@ -31,15 +31,15 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-22">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex-shrink-0">
             <Image
               src="/logo.png"
               alt="Rain Man Irrigation"
-              width={600}
-              height={200}
-              className="h-32 md:h-40 w-auto"
+              width={300}
+              height={120}
+              className="h-12 md:h-16 w-auto"
               priority
             />
           </a>
