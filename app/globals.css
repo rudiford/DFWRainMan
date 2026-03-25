@@ -3,25 +3,57 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --green-primary: #2D5A27;
+  --green-dark: #1E3D1A;
+  --charcoal: #2C2C2C;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #2C2C2C;
+  background: #ffffff;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-green-primary text-white font-semibold px-6 py-3 rounded transition-colors duration-200 hover:bg-green-dark;
   }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center border-2 border-white text-white font-semibold px-6 py-3 rounded transition-colors duration-200 hover:bg-white hover:text-green-primary;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-charcoal mb-4;
+  }
+
+  .section-subheading {
+    @apply text-lg text-gray-600 mb-12 max-w-2xl mx-auto;
+  }
+}
+
+/* Sticky header shadow on scroll — handled via JS class toggle */
+.header-scrolled {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+}
+
+/* Phone number pulse on mobile */
+@media (max-width: 640px) {
+  .phone-cta {
+    animation: pulse-green 2.5s infinite;
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45,90,39,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(45,90,39,0); }
 }

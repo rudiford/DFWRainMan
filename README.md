@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rain Man Irrigation — dfwrainman.com
+
+Website for Rain Man Irrigation, a residential landscaping and irrigation company serving the Dallas-Fort Worth area.
+
+**Owner:** Andrew Triplett
+**Domain:** dfwrainman.com
+**Stack:** Next.js 14 (App Router) + Tailwind CSS — static export ready for Vercel
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Generates a static export in the `out/` directory, ready to deploy on Vercel or any static host.
 
-To learn more about Next.js, take a look at the following resources:
+## Adding Real Photos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Photos are currently placeholder colored divs. To replace them:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Add images to `public/images/` (WebP format recommended, max 1200px wide)
+2. Update the placeholder `div` elements in each component with `<Image>` components:
+   ```tsx
+   import Image from "next/image";
+   <Image src="/images/your-photo.webp" alt="Description" fill className="object-cover" />
+   ```
 
-## Deploy on Vercel
+### Photo checklist by section:
+- **Hero** (`components/Hero.tsx`) — Full-width landscape/irrigation photo (1920×1080)
+- **Services** (`components/Services.tsx`) — One photo per service card (800×600)
+- **Gallery** (`components/Gallery.tsx`) — Replace placeholder items with real project photos
+- **About** (`components/About.tsx`) — Owner photo (Andrew Triplett)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Updating Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| What | File |
+|------|------|
+| Phone number | Search for `214.333.xxxx` across all files |
+| Email address | Search for `info@dfwrainman.com` |
+| Services descriptions | `components/Services.tsx` |
+| Gallery photos | `components/Gallery.tsx` |
+| About text | `components/About.tsx` |
+| City list | `components/ServiceArea.tsx` |
+| SEO metadata | `app/layout.tsx` |
+
+## Contact Form
+
+The contact form currently simulates submission. To wire it up:
+
+- **Netlify Forms:** Add `netlify` attribute to `<form>` tag
+- **Formspree:** POST to your Formspree endpoint
+- **Custom API:** Create an `app/api/contact/route.ts` endpoint
+
+## Deploying to Vercel
+
+1. Push to GitHub
+2. Import the repository in Vercel
+3. Vercel auto-detects Next.js — no config needed
+4. Set custom domain to `dfwrainman.com`
+
+## Brand Colors
+
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Green Primary | `#2D5A27` | Buttons, accents, headings |
+| Green Dark | `#1E3D1A` | Hover states |
+| Charcoal | `#2C2C2C` | Body text |
+| Off-white | `#F5F5F0` | Alternate section backgrounds |
+| Cream | `#F5F0E8` | Subtle accent backgrounds |
