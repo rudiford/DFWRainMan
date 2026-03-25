@@ -31,6 +31,51 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dfwrainman.com"),
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://dfwrainman.com",
+  name: "Rain Man Irrigation and Lighting",
+  image: "https://dfwrainman.com/logo.png",
+  url: "https://dfwrainman.com",
+  telephone: "+1-214-333-xxxx",
+  email: "info@dfwrainman.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Dallas",
+    addressRegion: "TX",
+    addressCountry: "US",
+  },
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: 32.7767,
+      longitude: -96.797,
+    },
+    geoRadius: "80467",
+  },
+  sameAs: [
+    "https://www.google.com/maps?cid=REPLACE_WITH_CID",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Outdoor Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sprinkler Install, Repair & Maintenance" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Landscape Design, Install & Maintenance" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Drainage Solutions" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Outdoor Lighting" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hardscape" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Outdoor Contractor" } },
+    ],
+  },
+  owner: {
+    "@type": "Person",
+    name: "Andrew Triplett",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,6 +86,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body>{children}</body>
     </html>

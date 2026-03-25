@@ -84,7 +84,25 @@ export default function About() {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            {/* Google Reviews badge */}
+            <div className="mb-8 p-5 bg-green-primary/5 border border-green-primary/20 rounded-xl inline-flex items-center gap-4">
+              <div className="flex items-center gap-1 text-yellow-500 text-lg">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <div>
+                <a
+                  href="https://search.google.com/local/reviews?placeid=ChIJRRJfnBKhToYR_REPLACE_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-primary font-bold hover:underline"
+                >
+                  See Our Google Reviews →
+                </a>
+                <div className="text-gray-500 text-xs mt-0.5">Rain Man Irrigation and Lighting</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
                 className="btn-primary text-center px-8 py-3 rounded text-base font-bold bg-green-primary hover:bg-green-dark text-white inline-flex items-center justify-center gap-2 transition-colors"

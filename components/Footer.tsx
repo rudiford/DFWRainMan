@@ -91,9 +91,18 @@ export default function Footer() {
           <span>
             &copy; {year} Rain Man Irrigation. All rights reserved. | Dallas-Fort Worth, TX
           </span>
-          <span>
+          <span className="flex items-center gap-2 flex-wrap justify-center sm:justify-end">
             <a href="mailto:info@dfwrainman.com" className="hover:text-gray-300 transition-colors">
               info@dfwrainman.com
+            </a>
+            {" · "}
+            <a
+              href="https://search.google.com/local/reviews?placeid=ChIJRRJfnBKhToYR_REPLACE_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition-colors"
+            >
+              ⭐ Google Reviews
             </a>
             {" · "}
             <a href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
