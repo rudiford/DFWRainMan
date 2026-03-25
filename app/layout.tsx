@@ -56,6 +56,7 @@ const jsonLd = {
     geoRadius: "80467",
   },
   sameAs: [
+    "https://www.facebook.com/RainManDFW/",
     "https://www.google.com/maps?cid=REPLACE_WITH_CID",
   ],
   hasOfferCatalog: {
